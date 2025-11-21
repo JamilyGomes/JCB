@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 30px;
+    gap: 10px;
 }
 
 .menu-header {
@@ -104,29 +104,48 @@ body.light .alterar-tema:hover {
 
 /* search  */
 
+/* SEARCH - VERSÃO ULTRA FINA E CLEAN */
 .container_input_pesquisar {
     position: relative;
-    transition: 0.4s;
 }
 
 .input-search {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.2);        /* borda preta BEM fina */
     border-radius: 30px;
-    padding: 8px;
-    height: 40px;
+    padding: 0px 12px;                          /* menos padding = mais fino */
+    height: 42px;                               /* altura menor */
+    width: 46px;                                /* só a lupa */
     overflow: hidden;
-    width: 45px; 
-    transition: 0.4s;
     cursor: pointer;
-    direction: rtl; 
+    transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* Remove qualquer sombra grossa no estado normal */
+    box-shadow: none !important;
 }
 
+/* Hover e ativo → só uma bordazinha laranja + glow leve */
+.input-search:hover,
+.container_input_pesquisar.active .input-search {
+    width: 300px;
+    border-color: #ff9800;                      /* borda laranja fina */
+    background: rgba(255, 255, 255, 0.92);
+    
+    /* Glow bem suave e elegante (só no hover) */
+    box-shadow: 0 0 14px rgba(255, 152, 0, 0.35);
+}
+
+/* Lupa */
 .img-lupa img {
-    width: 20px;
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
 }
 
+/* Input de texto */
 .input_search {
     width: 0;
     opacity: 0;
@@ -134,16 +153,19 @@ body.light .alterar-tema:hover {
     background: transparent;
     outline: none;
     margin-left: 10px;
-    transition: 0.4s;
-    color: black;
-    direction: ltr;
+    font-size: 15px;
+    color: #000;
+    transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    flex: 1;
 }
 
-.container_input_pesquisar:hover .input-search {
-    width: 240px;
-}
-
-.container_input_pesquisar:hover .input_search {
+.input-search:hover .input_search,
+.container_input_pesquisar.active .input_search {
     width: 100%;
     opacity: 1;
+}
+
+.input_search::placeholder {
+    color: #666;
+    font-size: 14.5px;
 }

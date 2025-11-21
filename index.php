@@ -12,7 +12,3 @@
     <script src="js/home.js"></script>
 </body>
 </html>
-
-
-
-
