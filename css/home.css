@@ -42,9 +42,6 @@
     background: #0a0a0a;
 }
 
-.espaco-cabecalho {
-    height: 100px;
-}
 
 /* logo  */
 
@@ -103,8 +100,6 @@ body.light .alterar-tema:hover {
 }
 
 /* search  */
-
-/* SEARCH - VERSÃO ULTRA FINA E CLEAN */
 .container_input_pesquisar {
     position: relative;
 }
@@ -114,27 +109,22 @@ body.light .alterar-tema:hover {
     align-items: center;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 0, 0, 0.2);        /* borda preta BEM fina */
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 30px;
-    padding: 0px 12px;                          /* menos padding = mais fino */
-    height: 42px;                               /* altura menor */
-    width: 46px;                                /* só a lupa */
+    padding: 0px 12px;
+    height: 42px;
+    width: 46px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
-    
-    /* Remove qualquer sombra grossa no estado normal */
     box-shadow: none !important;
 }
 
-/* Hover e ativo → só uma bordazinha laranja + glow leve */
 .input-search:hover,
 .container_input_pesquisar.active .input-search {
     width: 300px;
-    border-color: #ff9800;                      /* borda laranja fina */
+    border-color: #ff9800;
     background: rgba(255, 255, 255, 0.92);
-    
-    /* Glow bem suave e elegante (só no hover) */
     box-shadow: 0 0 14px rgba(255, 152, 0, 0.35);
 }
 
@@ -168,4 +158,135 @@ body.light .alterar-tema:hover {
 .input_search::placeholder {
     color: #666;
     font-size: 14.5px;
+}
+
+
+/* footer  */
+
+.footer-home {
+    width: 100%;
+    background: transparent;
+    margin-top: 60px;
+}
+
+.footer-divider {
+    width: 100%;
+    height: 2px;
+    border: none;
+    background: #000;
+    /* background: rgba(255, 255, 255, 0.2); */
+    margin-bottom: 25px;
+    transition: background 0.3s;
+}
+
+.container-footer {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body.light .footer-divider {
+    background: black;
+}
+
+/* logo footer  */
+
+#jcb-logo-footer{
+    width: 94px;
+    height: 36px;
+    transition: 0.3s;
+}
+
+#jcb-logo-footer:hover {
+    transform: scale(1.1);
+}
+
+.logo-footer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+    display: flex;
+}
+
+.footer-left {
+    justify-content: flex-start;
+}
+
+.footer-center {
+    justify-content: center; 
+}
+
+.footer-right {
+    justify-content: flex-end;
+}
+
+
+/* right  */
+
+.right-list {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.footer-right li a {
+    text-decoration: none;
+    font-size: 16px;
+    /* color: #fff; */
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.footer-right ul li a:hover {
+    color: #ff9800;
+}
+
+body.light .footer-right ul li a {
+    color: #000;
+}
+
+body.light .footer-right ul li a:hover {
+    color: #ff9800;
+}
+
+.footer-right {
+    margin-left: auto;                
+}
+
+/* left  */
+
+
+.left-list {
+    list-style: none;
+    padding: 0 20px;
+}
+
+.footer-left li a {
+    text-decoration: none;
+    font-size: 16px;
+    /* color: #fff; */
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.footer-left ul li a:hover {
+    color: #ff9800;
+}
+
+body.light .footer-left ul li a {
+    color: #000;
+}
+
+body.light .footer-left ul li a:hover {
+    color: #ff9800;
 }
