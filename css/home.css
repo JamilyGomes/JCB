@@ -1,3 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+}
+
 /* header */
 
 #cabecalho_home {
@@ -165,27 +176,27 @@ body.light .alterar-tema:hover {
 
 .footer-home {
     width: 100%;
-    background: transparent;
+    background: black;
     margin-top: 60px;
 }
 
 .footer-divider {
-    width: 100%;
-    height: 2px;
-    border: none;
-    background: #000;
-    /* background: rgba(255, 255, 255, 0.2); */
-    margin-bottom: 25px;
+
     transition: background 0.3s;
+    width: 90%;
+    margin: 0 auto 20px auto;
+    border: 0;
+    border-top: 1px solid #444;
 }
 
 .container-footer {
-    max-width: 1400px;
-    margin: 0 auto;
+
+    width: 90%;
+    margin: auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
+
 
 body.light .footer-divider {
     background: black;
@@ -289,4 +300,93 @@ body.light .footer-left ul li a {
 
 body.light .footer-left ul li a:hover {
     color: #ff9800;
+}
+
+/* carrossel */
+
+.carrossel-3d-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 340px;
+    height: 260px;
+    perspective: 1000px;
+    z-index: 10;
+}
+
+/* scene */
+#scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(42deg) rotateY(28deg) rotateZ(15deg);
+    transition: transform 1.2s ease;
+}
+
+/* itens do carrossel */
+/* cartao */
+.item {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+
+    transform:
+        rotateY(calc(var(--i) * 51deg))
+        translateZ(280px)
+        translateX(-75px)   
+        translateY(-75px);    
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+/* Imagens */
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+}
+
+
+/* hero*/
+.hero-area {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* responsividade */
+
+@media (max-width: 768px) {
+    .carrossel-3d-container {
+        width: 240px;
+        height: 180px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .item {
+        width: 110px;
+        height: 110px;
+        margin-left: -55px;
+        margin-top: -55px;
+    }
+
+    .hero-area {
+        height: 420px;
+    }
 }

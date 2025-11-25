@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
+
     <?php include 'components/header.php'?>
+
+    <section class="hero-area">
+        <img class="hero-bg" src="img/fundo-principal.jpg" alt="">
+        <?php include 'components/carrossel.php'?>
+    </section>
+
     <?php include 'components/footer.php'?>
 
     <script src="js/home.js"></script>
