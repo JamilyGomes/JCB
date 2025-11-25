@@ -1,3 +1,5 @@
+// alterar tema ---------- fazer ajustes dps
+
 document.addEventListener('DOMContentLoaded', function () {
     const tema = document.querySelector('.alterar-tema');
     const containerPesquisa = document.querySelector('.container_input_pesquisar');
@@ -23,60 +25,39 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
-
-
-
-
-
-
 // carrossel
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const TOTAL_PECAS = 7;
     const scene = document.getElementById('scene');
     const step = 360 / TOTAL_PECAS;
     let angle = 0;
 
     function girar() {
         angle -= step;
-        scene.style.transform = `rotateX(0deg) rotateY(${angle}deg)`;
+        scene.style.transform = `rotateX(42deg) rotateY(${angle + 28}deg) rotateZ(15deg)`;
     }
 
     // autoplay
-    setInterval(girar, 3000);
+    setInterval(girar, 3400);
 
-    // touch 
+    // touch ------------ ver isso depois
     let dragging = false;
     let startX;
+    scene.parentElement.addEventListener('mousedown', e => { dragging = true; startX = e.clientX; });
+    scene.parentElement.addEventListener('touchstart', e => { dragging = true; startX = e.touches[0].clientX; e.preventDefault(); });
 
-    const container = scene.parentElement;
-
-    const startDrag = (e) => {
-        dragging = true;
-        startX = e.clientX || e.touches[0].clientX;
-    };
-
-    const drag = (e) => {
+    scene.parentElement.addEventListener('mousemove', e => {
         if (!dragging) return;
         const x = e.clientX || e.touches[0].clientX;
-
-        if (Math.abs(x - startX) > 25) {
+        if (Math.abs(x - startX) > 30) {
             angle += (x > startX ? step : -step);
-            scene.style.transform = `rotateX(0deg) rotateY(${angle}deg)`;
+            scene.style.transform = `rotateX(42deg) rotateY(${angle + 28}deg) rotateZ(15deg)`;
             startX = x;
         }
-    };
+    });
 
-    const endDrag = () => dragging = false;
+    document.addEventListener('mouseup', () => dragging = false);
+    document.addEventListener('touchend', () => dragging = false);
 
-    container.addEventListener('mousedown', startDrag);
-    container.addEventListener('touchstart', startDrag, { passive: true });
-
-    container.addEventListener('mousemove', drag);
-    container.addEventListener('touchmove', drag, { passive: true });
-
-    document.addEventListener('mouseup', endDrag);
-    document.addEventListener('touchend', endDrag);
-});
+})

@@ -11,7 +11,7 @@
     <?php include 'components/header.php'?>
 
     <section class="hero-area">
-        <img class="hero-bg" src="img/fundo-principal.jpg" alt="">
+        <img class="hero-bg" src="img/tractor.png" alt="trator-princ">
         <?php include 'components/carrossel.php'?>
     </section>
 
